@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to express</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #010613, #061547);
+      color: #2c3e50;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bg-shape {
+      position: absolute;
+      border-radius: 50%;
+      background: white;
+      opacity: 0.1;
+      pointer-events: none;
+      animation: float 6s ease-in-out infinite;
+    }
+    .shape-1 { width: 300px; height: 300px; top: 10%; left: 10%; }
+    .shape-2 { width: 200px; height: 200px; top: 60%; right: 10%; animation-delay: 2s; }
+    .shape-3 { width: 150px; height: 150px; bottom: 10%; left: 30%; animation-delay: 4s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-15px) scale(1.05); }
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 50px 60px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      max-width: 530px;
+      width: 90%;
+      transition: transform .3s ease;
+    }
+    .container:hover { transform: translateY(-5px); }
+
+    .logo {
+      width: 70px; height: 70px;
+      margin: 0 auto 25px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      background: linear-gradient(135deg, #112353, #556bb6);
+      color: white;
+      cursor: pointer;
+      transition: transform .3s ease;
+    }
+    .logo:hover { transform: scale(1.05) rotate(5deg); }
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      background: linear-gradient(135deg, #1e3a8a, #030713);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: #64748b;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .tech-badges {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+    }
+    .badge {
+      padding: 6px 14px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      color: #475569;
+      font-weight: 500;
+      transition: .3s ease;
+      cursor: pointer;
+    }
+    .badge:hover {
+      background: #071641;
+      color: white;
+      border-color: #1e3a8a;
+      transform: translateY(-2px);
+    }
+
+    .actions {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .action-link {
+      display: inline-block;
+      color: #1e3a8a;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 10px 20px;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+      transition: .3s ease;
+    }
+    .action-link::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #1e3a8a, #1e40af);
+      border-radius: 8px;
+      opacity: 0;
+      z-index: -1;
+      transition: opacity .3s ease;
+    }
+    .action-link:hover::before { opacity: 1; }
+    .action-link:hover { color: white; transform: translateY(-1px); }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(34, 197, 94, 0.1);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: #16a34a;
+    }
+    .status-dot {
+      width: 8px; height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+
+    @media (max-width: 640px) {
+      .container { padding: 40px 20px; }
+      h1 { font-size: 2rem; }
+      .actions { flex-direction: column; }
+      .action-link { width: 100%; max-width: 200px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+  <div class="bg-shape shape-3"></div>
+
+  <div class="container">
+    <div class="logo" id="logo">📡</div>
+ <h1>
+  Server is running  Successfully 
+</h1>
+
+    <p class="subtitle">Your development server is running and ready to build amazing APIs.</p>
+
+    <div class="tech-badges">
+      <span class="badge">Express</span>
+      <span class="badge">TypeScript</span>
+      <span class="badge">MongoDB</span>
+      <span class="badge">Redis</span>
+    </div>
+
+    <div class="actions">
+      <a href="/docs" class="action-link">📚 Docs</a>
+      <a href="/api/users" class="action-link">👥 API</a>
+      <a href="https://expressjs.com" class="action-link">🌐 Learn</a>
+    </div>
+
+
+  <script>
+    // Particle effect
+    const createParticle = () => {
+      const p = Object.assign(document.createElement('div'), {
+        className: 'particle',
+        style: `position:absolute;width:3px;height:3px;background:rgba(30,58,138,0.6);border-radius:50%;left:${Math.random()*100}%;top:100%;opacity:0;animation:particleFloat ${Math.random()*3+2}s linear forwards;`
+      });
+      document.body.append(p);
+      setTimeout(() => p.remove(), 5000);
+    };
+    setInterval(createParticle, 1500);
+
+    // Logo interaction
+    document.getElementById('logo').onclick = (e) => {
+      e.target.style.transform = 'scale(0.9) rotate(-5deg)';
+      setTimeout(() => e.target.style.transform = '', 150);
+    };
+
+    // Parallax effect
+    document.onmousemove = (e) => {
+      const x = e.clientX / innerWidth - 0.5;
+      const y = e.clientY / innerHeight - 0.5;
+      document.querySelector('.container').style.transform = `translate(${x*10}px, ${y*10}px)`;
+      document.querySelectorAll('.bg-shape').forEach((s, i) => {
+        const speed = (i + 1) * 0.5;
+        s.style.transform = `translate(${x*speed*20}px, ${y*speed*20}px)`;
+      });
+    };
+  </script>
+</body>
+</html>

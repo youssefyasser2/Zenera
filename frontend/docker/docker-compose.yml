@@ -1,0 +1,10 @@
+services:
+  frontend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "4173:4173"
+    environment:
+      - NODE_ENV=production
+      - VITE_BASE_URL=http://localhost:5000
