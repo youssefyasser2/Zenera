@@ -1,31 +1,50 @@
 # =========================
+
 # Dependencies
+
 # =========================
+
 node_modules/
 
 # =========================
+
 # Build Output
+
 # =========================
+
 dist/
 build/
 dist-ssr/
 coverage/
+.next/
+out/
 
 # =========================
+
 # Environment Variables
+
 # =========================
+
 .env
 .env.*
 !.env.example
 
 # =========================
+
 # Databases
-# =========================
-prisma/dev.db
 
 # =========================
-# Logs
+
+prisma/dev.db
+*.sqlite
+*.sqlite3
+
 # =========================
+
+# Logs
+
+# =========================
+
 logs/
 *.log
 npm-debug.log*
@@ -35,21 +54,30 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # =========================
+
 # IDEs & Editors
+
 # =========================
+
 .vscode/
 !.vscode/extensions.json
 .idea/
 
 # =========================
+
 # OS Files
+
 # =========================
+
 .DS_Store
 Thumbs.db
 
 # =========================
+
 # Temporary Files
+
 # =========================
+
 *.local
 *.suo
 *.ntvs*
@@ -59,14 +87,53 @@ Thumbs.db
 *.swo
 
 # =========================
+
 # Package Managers
+
 # =========================
+
 .pnpm-store/
 .npm/
 
 # =========================
-# Misc
+
+# Cache
+
 # =========================
+
 .cache/
 .temp/
 tmp/
+.eslintcache
+
+# =========================
+
+# Test Reports
+
+# =========================
+
+junit.xml
+test-results/
+playwright-report/
+
+# =========================
+
+# Vite
+
+# =========================
+
+vite.config.ts.timestamp-*
+
+# =========================
+
+# Misc
+
+# =========================
+
+*.tgz
+*.zip
+*.tar.gz
+
+
+
+.gitignore
