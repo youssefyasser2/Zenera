@@ -1,33 +1,166 @@
 # Zenera
 
-A full-stack workforce operations platform built to help organizations manage employees, schedules, shift assignments, and operational workflows through a centralized system.
+A full-stack multi-tenant workforce management platform built with React, TypeScript, Node.js, MongoDB, and Redis.
 
-The platform combines role-based access control, company-level data isolation, shift management, and workforce coordination to support day-to-day business operations.
+Zenera helps organizations manage employees, schedules, shift assignments, and workforce operations through a centralized SaaS-style architecture while enforcing secure company-level data isolation.
 
-## Demo
-
-🎥 Project Walkthrough
+🎥 **Project Walkthrough**
 
 https://www.youtube.com/watch?v=iNVzlzLWM6c
 
 ---
 
-## Highlights
+# Overview
 
-* Full-Stack Application
-* Multi-Tenant Architecture
-* JWT Authentication
-* Role-Based Access Control (RBAC)
-* Employee Management
-* Shift Scheduling
-* Company Isolation
-* Workforce Operations Management
-* Dockerized Development Environment
-* Unit & Integration Testing
+Zenera was designed to simulate real-world workforce management systems and explore production-oriented software engineering patterns including:
+
+* Multi-tenant architecture
+* Role-based access control (RBAC)
+* JWT authentication and authorization
+* Workforce scheduling workflows
+* Secure REST API design
+* Scalable backend architecture
+* Dockerized development environments
 
 ---
 
-## Architecture
+# Technical Highlights
+
+* Full-stack architecture with separate frontend and backend applications
+* Layered backend design (Routes → Controllers → Services → Models)
+* Multi-tenant company isolation
+* JWT authentication with refresh-token workflow
+* Role-based authorization (Admin, Manager, Employee)
+* MongoDB schema modeling with Mongoose
+* Redis integration for authentication workflows
+* Protected API routes and centralized middleware
+* Request validation and security hardening
+* Dockerized local development environment
+* Unit and integration testing support
+
+---
+
+# Project Metrics
+
+* 2 Applications (Frontend + Backend)
+* 40+ REST API Endpoints
+* 3 User Roles
+* Multi-Tenant Architecture
+* JWT + Refresh Token Authentication
+* Dockerized Development Environment
+* MongoDB + Redis Integration
+
+---
+
+# Architecture
+
+```text
+                ┌─────────────────┐
+                │ React Frontend  │
+                └────────┬────────┘
+                         │
+                         ▼
+                ┌─────────────────┐
+                │ Express REST API│
+                └────────┬────────┘
+                         │
+              ┌──────────┴──────────┐
+              ▼                     ▼
+      ┌─────────────┐      ┌─────────────┐
+      │  MongoDB    │      │    Redis    │
+      └─────────────┘      └─────────────┘
+```
+
+---
+
+# Core Features
+
+## Authentication & Authorization
+
+* User Registration
+* Secure Login
+* JWT Authentication
+* Refresh Token Workflow
+* Protected Routes
+* Role-Based Access Control (RBAC)
+
+## Workforce Management
+
+* Employee Management
+* Employee Profiles
+* Company User Management
+* Workforce Coordination
+* Manager Controls
+
+## Shift Management
+
+* Create Shifts
+* Assign Employees
+* Schedule Validation
+* Conflict Detection
+* Company-Wide Shift Visibility
+
+## Multi-Tenant Support
+
+* Company Registration
+* Company Isolation
+* Tenant-Aware Authorization
+* Cross-Company Access Protection
+
+---
+
+# Business Rules
+
+* Managers can manage employees within their company.
+* Employees can access only assigned resources.
+* Users cannot access data belonging to another company.
+* Shift assignments are validated before creation.
+* Employee linking is restricted to the same organization.
+* Authorization is enforced at both route and service levels.
+
+---
+
+# Technology Stack
+
+## Frontend
+
+* React
+* TypeScript
+* Vite
+* Redux Toolkit
+* React Router
+* Tailwind CSS
+
+## Backend
+
+* Node.js
+* Express.js
+* TypeScript
+* MongoDB
+* Mongoose
+* Redis
+
+## Security
+
+* JWT
+* Refresh Tokens
+* Cookie-Based Authentication
+* RBAC Authorization
+
+## Infrastructure
+
+* Docker
+* Docker Compose
+
+## Testing
+
+* Jest
+* Unit Testing
+* Integration Testing
+
+---
+
+# Project Structure
 
 ```text
 zenera/
@@ -39,17 +172,14 @@ zenera/
 │   │   ├── routes/
 │   │   ├── middlewares/
 │   │   ├── validation/
-│   │   ├── database/
 │   │   ├── tests/
 │   │   └── utils/
-│   ├── scripts/
 │   └── docker/
 │
 ├── frontend/
 │   ├── src/
 │   │   ├── pages/
 │   │   ├── components/
-│   │   ├── layouts/
 │   │   ├── routes/
 │   │   ├── services/
 │   │   ├── store/
@@ -61,106 +191,84 @@ zenera/
 
 ---
 
-## Features
+# Local Development
 
-### Authentication & Authorization
+## Prerequisites
 
-* User Registration
-* Secure Login
-* JWT Authentication
-* Protected Routes
-* Role-Based Access Control
+* Node.js 18+
+* MongoDB
+* Redis
+* Docker (optional)
 
-### Workforce Management
+## Backend
 
-* Employee Creation
-* Employee Linking
-* Employee Profiles
-* Company User Management
+```bash
+cd backend
+npm install
+cp .env.example .env
+npm run dev
+```
+
+## Frontend
+
+```bash
+cd frontend
+npm install
+cp .env.example .env
+npm run dev
+```
+
+---
+
+# Environment Variables
+
+Backend:
+
+```env
+MONGO_URI=
+JWT_SECRET=
+JWT_REFRESH_SECRET=
+JWT_EXPIRES_IN=
+JWT_REFRESH_EXPIRES_IN=
+REDIS_HOST=
+REDIS_PORT=
+```
+
+Frontend:
+
+```env
+VITE_BASE_URL=
+```
+
+---
+
+# Screenshots
+
+### Login Page
+
+![Login](docs/screenshots/login.png)
+
+### Manager Dashboard
+
+![Dashboard](docs/screenshots/dashboard.png)
 
 ### Shift Management
 
-* Create Shifts
-* Assign Employees
-* Shift Scheduling
-* Conflict Detection
-* Company-wide Shift Visibility
-
-### Multi-Tenant Support
-
-* Company Registration
-* Company Isolation
-* Tenant-Aware Authorization
-* Cross-Company Access Protection
-
-### Operational Workflows
-
-* Manager Dashboard
-* Employee Dashboard
-* Workforce Coordination
-* Schedule Management
+![Shifts](docs/screenshots/shifts.png)
 
 ---
 
-## Tech Stack
+# Future Enhancements
 
-### Frontend
-
-* React
-* TypeScript
-* Vite
-* Redux Toolkit
-* Tailwind CSS
-
-### Backend
-
-* Node.js
-* Express.js
-* MongoDB
-* Mongoose
-
-### Authentication
-
-* JWT
-* Cookie-Based Sessions
-
-### Infrastructure
-
-* Docker
-* Docker Compose
-
-### Testing
-
-* Jest
-
----
-
-## Business Rules
-
-* Managers can create and manage employees within their company.
-* Employees can only access resources assigned to them.
-* Users cannot access data belonging to another company.
-* Shift assignments are validated before creation.
-* Employee linking is restricted to users within the same organization.
-
----
-
-## Future Improvements
-
-* Time Tracking
-* Attendance Management
-* Workforce Analytics
-* Audit Logs
-* Email Notifications
-* Advanced Reporting
-* Background Job Processing
 * Real-Time Notifications
-* Payroll Management
+* Audit Logging
+* Workforce Analytics
+* Attendance Tracking
+* Monitoring & Observability
+* CI/CD Automation
 
 ---
 
-## Project Purpose
+# License
 
-Zenera was developed as a graduation project to explore real-world workforce management challenges, including authentication, authorization, multi-tenant architecture, employee scheduling, role-based access control, and scalable full-stack application design.
-
-The project focuses on building production-oriented software patterns commonly used in modern SaaS platforms while maintaining a clean and extensible architecture.
+MIT
