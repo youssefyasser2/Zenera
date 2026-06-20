@@ -242,22 +242,6 @@ VITE_BASE_URL=
 
 ---
 
-# Screenshots
-
-### Login Page
-
-![Login](docs/screenshots/login.png)
-
-### Manager Dashboard
-
-![Dashboard](docs/screenshots/dashboard.png)
-
-### Shift Management
-
-![Shifts](docs/screenshots/shifts.png)
-
----
-
 # Future Enhancements
 
 * Real-Time Notifications
