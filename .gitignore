@@ -1,139 +1,37 @@
-# =========================
-
 # Dependencies
-
-# =========================
 
 node_modules/
 
-# =========================
-
 # Build Output
-
-# =========================
 
 dist/
 build/
-dist-ssr/
 coverage/
-.next/
-out/
-
-# =========================
 
 # Environment Variables
-
-# =========================
 
 .env
 .env.*
 !.env.example
 
-# =========================
-
-# Databases
-
-# =========================
-
-prisma/dev.db
-*.sqlite
-*.sqlite3
-
-# =========================
-
 # Logs
-
-# =========================
 
 logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-# =========================
-
-# IDEs & Editors
-
-# =========================
+# Editor Settings
 
 .vscode/
-!.vscode/extensions.json
 .idea/
-
-# =========================
-
-# OS Files
-
-# =========================
-
-.DS_Store
-Thumbs.db
-
-# =========================
-
-# Temporary Files
-
-# =========================
-
-*.local
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.swp
-*.swo
-
-# =========================
-
-# Package Managers
-
-# =========================
-
-.pnpm-store/
-.npm/
-
-# =========================
 
 # Cache
 
-# =========================
-
-.cache/
-.temp/
-tmp/
 .eslintcache
 
-# =========================
+# OS Files
 
-# Test Reports
-
-# =========================
-
-junit.xml
-test-results/
-playwright-report/
-
-# =========================
-
-# Vite
-
-# =========================
-
-vite.config.ts.timestamp-*
-
-# =========================
-
-# Misc
-
-# =========================
-
-*.tgz
-*.zip
-*.tar.gz
-
-
-
-.gitignore
+.DS_Store
+Thumbs.db
