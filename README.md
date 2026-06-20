@@ -151,13 +151,7 @@ Zenera was designed to simulate real-world workforce management systems and expl
 
 * Docker
 * Docker Compose
-
-## Testing
-
-* Jest
-* Unit Testing
-* Integration Testing
-
+  
 ---
 
 # Project Structure
